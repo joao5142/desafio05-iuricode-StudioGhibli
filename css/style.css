@@ -1,0 +1,299 @@
+/*
+   Como é apenas uma página e não tem muito reaproveitamento de códigos , decidi usar seletores mais específicos  em alguns elementos.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
+
+/*RESET*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    height: auto;
+    display: block;
+}
+
+button,
+input,
+textarea {
+    border: 0;
+    outline: none;
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+    border: 0;
+    outline: none;
+}
+
+/*VARIAVEIS*/
+:root {
+    --green-light-color: #628E75;
+    --green-dark-color: #1A4855;
+    --white-color: #F9F9F9;
+}
+
+/* ##BODY | HTML */
+body,
+html {
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+h1,
+h3,
+p {
+    color: var(--white-color);
+}
+
+body {
+    background-image: linear-gradient(to bottom right, var(--green-light-color), var(--green-dark-color));
+    font-family: Poppins, sans-serif;
+}
+
+/* ##GERAL */
+header,
+main {
+    padding-left: 165px;
+    padding-right: 185px;
+}
+
+/* HEADER */
+nav {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav:nth-child(1) {
+    height: 100px;
+}
+
+nav ul img {
+    height: 25px;
+}
+
+nav ul {
+    display: flex;
+    align-self: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+/* ##MAIN |SECTION */
+section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+main {
+    margin-top: 85px;
+}
+
+main .content-box {
+
+    max-width: 500px;
+    min-width: 300px;
+
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+
+main .image-box {
+    max-width: 100%;
+    min-width: 300px;
+}
+
+main h3.autor {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+main h1.title {
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    line-height: 84px;
+    word-break: unset;
+
+}
+
+main .buttons {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+main .btn {
+    width: 225px;
+    position: relative;
+    max-height: 45px;
+    cursor: pointer;
+}
+
+main p.content {
+    margin-bottom: 55px;
+    line-height: 32px;
+}
+
+
+
+main .btn.fill .btn-content,
+main .btn.outline p {
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main .btn.fill .btn-content p {
+    margin-left: 10px;
+}
+
+main .btn .btn-content {
+    display: flex;
+}
+
+main .btn p {
+    width: auto;
+}
+
+main .image-box {
+    padding-left: 160px;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+/* ANIMATION IMAGE */
+main .image-box {
+    transition: transform 2.5s linear;
+}
+
+main .image-box img {
+
+    transition: filter 1.5s ease-out, transform 2.5s linear, opacity 0.5s linear;
+}
+
+main .image-box img.active {
+    filter: blur(50px);
+    opacity: 0;
+    transform: translateX(400%);
+}
+
+main .image-box.active {
+    transform: translateX(400%);
+}
+
+/* ##MEDIA QUERIES */
+
+@media only screen and (max-width:1300px) {
+    main {
+        width: 100vw;
+    }
+
+    main .content-box h1.title {
+        font-size: 4rem;
+    }
+
+    main section {
+        flex-wrap: wrap;
+        width: 90vw;
+        justify-content: center;
+        margin: 0 auto;
+
+    }
+
+
+    main {
+        padding: 0px;
+    }
+
+    main .image-box {
+        order: -1;
+        width: 90vw;
+        margin-bottom: 60px;
+        justify-content: center;
+        padding: 0px;
+    }
+
+    main .content-box {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    header {
+        padding: 0 30px;
+    }
+}
+
+@media only screen and (max-width:560px) {
+    header {
+        padding: 0 30px;
+    }
+
+    body {
+        font-size: 14px
+    }
+
+    main .image-box img {
+        width: 100%;
+
+    }
+
+    main .content-box {
+        max-width: 70vw;
+    }
+
+    main .content-box h1.title {
+        font-size: 3rem;
+    }
+
+    main .content-box *:not(.play-icon) {
+        width: 100%;
+
+    }
+
+    main .content-box .buttons .btn-content btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main .content-box .buttons .btn-content {
+        display: flex;
+        justify-content: center;
+    }
+
+    main .content-box .buttons .btn-content * {
+        width: auto;
+    }
+
+    main .content-box .buttons .btn-content p {
+        height: 100%;
+    }
+
+    main .content-box .buttons .play-icon {
+        padding: 0px;
+    }
+}
